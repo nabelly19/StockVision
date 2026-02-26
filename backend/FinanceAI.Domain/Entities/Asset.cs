@@ -1,5 +1,7 @@
 namespace FinanceAI.Domain.Entities;
 
+using FinanceAI.Domain.ValueObjects;
+
 /// <summary>
 /// Representa um ativo financeiro do sistema.
 /// </summary>

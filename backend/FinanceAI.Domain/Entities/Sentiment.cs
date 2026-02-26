@@ -4,18 +4,18 @@ public sealed class Sentiment
 {
     public Guid Id { get; private set; }
     public Guid AssetId { get; private set; }
-    public decimal ForecastPrice { get; private set; }
-    public double Confidence { get; private set; }
-    public DateTime GeneratedAt { get; private set; }
+    public double Score { get; private set; }  // Score normalized [-1..1]
+    public DateTime Date { get; private set; }
+    public string Source { get; private set; }
 
-    private Prediction() { }
+    private Sentiment() { }
 
-    public Prediction(Guid assetId, decimal forecastPrice, double confidence)
+    public Sentiment(Guid assetId, double score, string source)
     {
         Id = Guid.NewGuid();
         AssetId = assetId;
-        ForecastPrice = forecastPrice;
-        Confidence = Math.Clamp(confidence, 0, 1); // 0.0 to 1.0
-        GeneratedAt = DateTime.UtcNow;
+        Score = Math.Clamp(score, -1.0, 1.0);
+        Date = DateTime.UtcNow;
+        Source = string.IsNullOrWhiteSpace(source) ? throw new ArgumentException("Source inválida", nameof(source)) : source;
     }
 }

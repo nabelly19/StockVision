@@ -8,8 +8,6 @@ public sealed class Prediction
     public double Confidence { get; private set; }
     public DateTime GeneratedAt { get; private set; }
 
-    private Prediction() { }
-
     public Prediction(Guid assetId, decimal forecastPrice, double confidence)
     {
         Id = Guid.NewGuid();

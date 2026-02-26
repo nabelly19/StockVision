@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\FinanceAI.Application\FinanceAI.Application.csproj" />
     <ProjectReference Include="..\FinanceAI.Infrastructure\FinanceAI.Infrastructure.csproj" />
+    <ProjectReference Include="..\FinanceAI.Domain\FinanceAI.Domain.csproj" />
   </ItemGroup>
 
 </Project>
