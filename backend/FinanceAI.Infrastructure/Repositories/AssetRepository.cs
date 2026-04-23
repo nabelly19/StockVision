@@ -1,5 +1,6 @@
 using FinanceAI.Domain.Repositories;
 using FinanceAI.Domain.ValueObjects;
+using FinanceAI.Domain.Entities;
 using FinanceAI.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 

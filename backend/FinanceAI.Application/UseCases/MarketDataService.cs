@@ -5,20 +5,20 @@ namespace FinanceAI.Application.UseCases;
 
 public class MarketDataService : IMarketDataService
 {
-    private readonly IMarketDataService _marketData;
+    private readonly IExternalMarketDataProvider _provider;
 
-    public MarketDataService(IMarketDataService marketData)
+    public MarketDataService(IExternalMarketDataProvider provider)
     {
-        _marketData = marketData;
+        _provider = provider;
     }
 
     public async Task<IEnumerable<PriceHistoryDto>> GetHistoricalAsync(string symbol, CancellationToken cancellationToken = default)
     {
-        var prices = await _marketData.GetHistoricalAsync(symbol, cancellationToken);
+        var data = await _provider.GetHistoricalAsync(symbol, cancellationToken);
 
-        return prices.Select(p => new PriceHistoryDto
+        return data.Select(p => new PriceHistoryDto
         {
-            Date = p.Date.ToString("yyyy-MM-dd"),
+            Date = p.Date, // .ToString("yyyy-MM-dd")
             Open = p.Open,
             High = p.High,
             Low = p.Low,

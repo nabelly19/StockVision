@@ -1,3 +1,6 @@
+using FinanceAI.Domain.Repositories;
+using FinanceAI.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 namespace FinanceAI.Infrastructure.Repositories;
 
 public class PredictionRepository : IPredictionRepository

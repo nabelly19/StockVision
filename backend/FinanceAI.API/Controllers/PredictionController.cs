@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Mvc;
+
 [ApiController]
 [Route("api/v1/stocks/{symbol}/forecast")]
 public class PredictionController : ControllerBase
